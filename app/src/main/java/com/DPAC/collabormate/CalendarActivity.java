@@ -26,6 +26,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
+import com.parse.ParseUser;
+
 public class CalendarActivity extends Activity implements View.OnClickListener {
     //UI References
     private EditText fromDateEtxt;
@@ -202,6 +204,11 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
             case R.id.settings:
                 startActivity(new Intent(this, Preferences.class));
                 return (true);
+
+            case R.id.logout:
+                ParseUser.logOut();
+                startActivity(new Intent(CalendarActivity.this, MainActivity.class));
+                return(true);
         }
 
         return super.onOptionsItemSelected(item);

@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.parse.ParseUser;
+
 import java.util.List;
 
 
@@ -124,6 +126,12 @@ public class ProjectsActivity extends ListActivity {
             AlertDialog dialog = builder.create();
 
             builder.show();
+            return(true);
+        }
+
+        if (id == R.id.logout)   {
+            ParseUser.logOut();
+            startActivity(new Intent(ProjectsActivity.this, MainActivity.class));
             return(true);
         }
 

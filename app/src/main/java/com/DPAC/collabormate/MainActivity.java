@@ -150,6 +150,11 @@ public class MainActivity extends ActionBarActivity {
             case R.id.settings:
                 startActivity(new Intent(MainActivity.this, Preferences.class));
                 return(true);
+
+            case R.id.logout:
+                ParseUser.logOut();
+                return(true);
+
         }
 
         return super.onOptionsItemSelected(item);

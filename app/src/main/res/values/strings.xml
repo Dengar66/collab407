@@ -94,5 +94,6 @@
     <string name="send">Send message</string>
     <string name="received_messages">Received messages</string>
     <string name="no_messages">No messages</string>
+    <string name="title_activity_project_view">ProjectViewActivity</string>
 
 </resources>
