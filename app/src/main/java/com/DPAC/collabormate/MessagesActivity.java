@@ -13,19 +13,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.DPAC.collabormate.main.Consts;
+import com.DPAC.collabormate.main.helper.PlayServicesHelper;
+import com.DPAC.collabormate.main.utils.DialogUtils;
 import com.quickblox.core.QBEntityCallbackImpl;
 import com.quickblox.core.helper.StringifyArrayList;
 import com.quickblox.messages.QBMessages;
 import com.quickblox.messages.model.QBEnvironment;
 import com.quickblox.messages.model.QBEvent;
 import com.quickblox.messages.model.QBNotificationType;
-//import com.quickblox.simplesample.messages.R;
-import com.DPAC.collabormate.main.Consts;
-import com.DPAC.collabormate.main.helper.PlayServicesHelper;
-import com.DPAC.collabormate.main.utils.DialogUtils;
 
 import java.util.List;
+
+//import com.quickblox.simplesample.messages.R;
 
 public class MessagesActivity extends Activity {
 
@@ -72,7 +74,8 @@ public class MessagesActivity extends Activity {
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendMessageOnClick(view);
+                displayMessage();
+                //sendMessageOnClick(view);
             }
         });
     }
@@ -94,6 +97,17 @@ public class MessagesActivity extends Activity {
     protected void onResume() {
         super.onResume();
         playServicesHelper.checkPlayServices();
+    }
+
+    public void displayMessage() {
+        // display message
+        messageInEditText.setText(messageOutEditText.getText().toString(), TextView.BufferType.EDITABLE);
+        // delete input
+        messageOutEditText.setText("");
+        // hide keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(messageOutEditText.getWindowToken(), 0);
     }
 
     public void sendMessageOnClick(View view) {
