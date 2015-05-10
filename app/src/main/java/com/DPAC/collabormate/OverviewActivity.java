@@ -1,10 +1,10 @@
 package com.DPAC.collabormate;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import android.widget.Button;
  * Created by Chi Hoang on 5/6/2015.
  */
 
-public class OverviewActivity extends ActionBarActivity  {
+public class OverviewActivity extends Activity {
 
     private ProjectsDataSource datasource;
     private String projectName = "";

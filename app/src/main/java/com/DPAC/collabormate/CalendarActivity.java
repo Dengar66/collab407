@@ -3,6 +3,7 @@ package com.DPAC.collabormate;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -58,9 +60,8 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         findViewsById();
         setDateTimeField();
 
-        ExtendedCalendarView calendar = (ExtendedCalendarView)findViewById(R.id.calendar);
         ContentValues values = new ContentValues();
-        values.put(CalendarProvider.COLOR, Event.COLOR_BLUE);
+        values.put(CalendarProvider.COLOR, Event.COLOR_YELLOW);
         values.put(CalendarProvider.DESCRIPTION, "Some Description");
         values.put(CalendarProvider.LOCATION, "Some location");
         values.put(CalendarProvider.EVENT, "Event name");
@@ -77,6 +78,9 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
         values.put(CalendarProvider.END, cal.getTimeInMillis());
         values.put(CalendarProvider.END_DAY, endDayJulian);
+
+        Uri uri = getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
+
     }
 
     private void findViewsById() {
@@ -204,7 +208,6 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     }
 
     public void addTask(View view) {
-        //Get Task data from server
         String title = task.getText().toString();
         String description = desc.getText().toString();
         String location = loc.getText().toString();
@@ -233,7 +236,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         endMillis = endTime.getTimeInMillis();
 //Add to calendarView
         ContentValues values = new ContentValues();
-        values.put(CalendarProvider.COLOR, Event.COLOR_BLUE);
+        values.put(CalendarProvider.COLOR, Event.COLOR_GREEN);
         values.put(CalendarProvider.DESCRIPTION, description);
         values.put(CalendarProvider.LOCATION, location);
         values.put(CalendarProvider.EVENT, title);
@@ -254,12 +257,6 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
         Uri uri = getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
 
-// get the event ID that is the last element in the Uri
-        long eventID = Long.parseLong(uri.getLastPathSegment());
-//
-// ... do something with event ID
-//
-//
 
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(Events.CONTENT_URI)
@@ -274,6 +271,36 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         startActivity(intent);
     }
 
+    public void deleteTask(View view) {
+        @SuppressWarnings("unchecked")
+        final AlertDialog.Builder[] builder = {new AlertDialog.Builder(this)};
+        builder[0].setTitle("Task Name:");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder[0].setView(input);
+
+        // Add new course
+        builder[0].setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //TODO: Remove task from calender
+                Toast.makeText(getApplicationContext(), "Task Removed.", Toast.LENGTH_LONG).show();
+            }
+        });
+        //Cancel
+        builder[0].setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder[0].show();
+    }
+
     private double getJulianDay(int Y, int M, int D) {
         double A = Y / 100;
         double B = A / 4;
@@ -285,7 +312,12 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     }
 
     public void viewCalendar(View view) {
-
+        long startMillis = System.currentTimeMillis();
+        Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+        builder.appendPath("time");
+        ContentUris.appendId(builder, startMillis);
+        Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
+        startActivity(intent);
     }
 
 }
