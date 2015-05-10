@@ -4,14 +4,29 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.ArrayList;
+
+import com.parse.ParseException;
 
 /**
  * Created by Chi Hoang on 5/6/2015.
@@ -21,10 +36,82 @@ public class OverviewActivity extends ActionBarActivity  {
 
     private ProjectsDataSource datasource;
     private String projectName = "";
+    private String[] userArray = new String[3];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
+
+        ListView listView1 = (ListView) findViewById(R.id.list2);
+
+        // Set up the listview
+        ArrayList<String> userList = new ArrayList<String>();
+        // Create and populate an ArrayList of objects from parse
+        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1);
+        //final ListView userlv = (ListView)findViewById(android.R.id.list);
+        listView1.setAdapter(listAdapter);
+        final ParseQuery query = ParseUser.getQuery();
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    Toast.makeText(getApplicationContext(), objects.toString(), Toast.LENGTH_LONG)
+                            .show();
+                    for (int i = 0; i < objects.size(); i++) {
+                        ParseUser u = (ParseUser)objects.get(i);
+
+                        String email = u.getString("email").toString();
+
+                        listAdapter.add(email);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        /*
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
+        query.findInBackground(new FindCallback<ParseUser>() {
+            public void done(List<ParseUser> objects, ParseException e) {
+                if (e == null) {
+                    foundUsers(objects);
+                } else {
+                    Toast.makeText(OverviewActivity.this, "no users", Toast.LENGTH_LONG);
+                }
+            }
+        });*/
+
+
+        //userArray[0] = ParseUser.getCurrentUser().getUsername();
+
+
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        //        android.R.layout.simple_list_item_1, userArray);
+
+        //listView1.setAdapter(listAdapter);
+    }
+
+    public void foundUsers(List<ParseUser> users) {
+        for (int i = 0; i < 5; i++) {
+            userArray[i] = users.get(i).getUsername();
+        }
+
+        if (ParseUser.getCurrentUser().getUsername().equals(userArray[0])) {
+            return;
+        } else {
+            String temp = userArray[0];
+            for (int j = 1; j < 5; j++) {
+                if (ParseUser.getCurrentUser().getUsername().equals(userArray[j])) {
+                    userArray[0] = userArray[j];
+                    userArray[j] = temp;
+                    return;
+                }
+            }
+        }
+
     }
 
 
