@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.ParseUser;
+
 /**
  * Created by Chi Hoang on 5/6/2015.
  */
@@ -116,6 +118,11 @@ public class OverviewActivity extends ActionBarActivity  {
             AlertDialog dialog = builder.create();
 
             dialog.show();
+            return(true);
+        }
+
+        if (id == R.id.logout)   {
+            ParseUser.logOut();
             return(true);
         }
 

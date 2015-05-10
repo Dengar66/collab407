@@ -21,4 +21,9 @@
         android:title="@string/about">
     </item>
 
+    <item
+        android:id="@+id/logout"
+        android:title="Logout">
+    </item>
+
 </menu>
