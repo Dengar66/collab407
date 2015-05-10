@@ -8,7 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.provider.CalendarContract.Events;
 import android.text.InputType;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import com.parse.ParseUser;
 
@@ -26,11 +30,26 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     //UI References
     private EditText fromDateEtxt;
     private EditText toDateEtxt;
+    private EditText task;
+    private EditText desc;
+    private EditText loc;
+    private EditText person;
 
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
 
     private SimpleDateFormat dateFormatter;
+
+    private int startDayYear = 0;
+    private int startDayMonth = 0;
+    private int startDayDay = 0;
+    private int startTimeHour = 0;
+    private int startTimeMin = 0;
+    private int endDayYear = 0;
+    private int endDayMonth = 0;
+    private int endDayDay = 0;
+    private int endTimeHour = 0;
+    private int endTimeMin = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +57,28 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_calendar);
 
         dateFormatter = new SimpleDateFormat("MM-dd-yyyy", Locale.US);
-
         findViewsById();
-
         setDateTimeField();
 
+        ExtendedCalendarView calendar = (ExtendedCalendarView)findViewById(R.id.calendar);
+        ContentValues values = new ContentValues();
+        values.put(CalendarProvider.COLOR, Event.COLOR_BLUE);
+        values.put(CalendarProvider.DESCRIPTION, "Some Description");
+        values.put(CalendarProvider.LOCATION, "Some location");
+        values.put(CalendarProvider.EVENT, "Event name");
+
+        Calendar cal = Calendar.getInstance();
+        TimeZone tz = TimeZone.getDefault();
+        cal.set(startDayYear, startDayMonth, startDayDay, startTimeHour, startTimeMin);
+        int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        values.put(CalendarProvider.START, cal.getTimeInMillis());
+        values.put(CalendarProvider.START_DAY, StartDayJulian);
+
+        cal.set(endDayYear, endDayMonth, endDayDay, endTimeHour, endTimeMin);
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+
+        values.put(CalendarProvider.END, cal.getTimeInMillis());
+        values.put(CalendarProvider.END_DAY, endDayJulian);
     }
 
     private void findViewsById() {
@@ -52,6 +88,18 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
         toDateEtxt = (EditText) findViewById(R.id.etxt_todate);
         toDateEtxt.setInputType(InputType.TYPE_NULL);
+
+        task = (EditText) findViewById(R.id.task);
+        task.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        desc = (EditText) findViewById(R.id.desc);
+        desc.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        loc = (EditText) findViewById(R.id.loc);
+        loc.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        person = (EditText) findViewById(R.id.person);
+        person.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
     }
 
     private void setDateTimeField() {
@@ -67,7 +115,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
                 fromDateEtxt.setText(dateFormatter.format(newDate.getTime()));
             }
 
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
         toDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
@@ -77,7 +125,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
                 toDateEtxt.setText(dateFormatter.format(newDate.getTime()));
             }
 
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 
 
@@ -91,9 +139,9 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if(view == fromDateEtxt) {
+        if (view == fromDateEtxt) {
             fromDatePickerDialog.show();
-        } else if(view == toDateEtxt) {
+        } else if (view == toDateEtxt) {
             toDatePickerDialog.show();
         }
     }
@@ -163,12 +211,17 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     }
 
     public void addTask(View view) {
+        //Get Task data from server
+        String title = task.getText().toString();
+        String description = desc.getText().toString();
+        String location = loc.getText().toString();
+        String email = person.getText().toString();
 
-        int startDayYear = fromDatePickerDialog.getDatePicker().getYear();
-        int startDayMonth = fromDatePickerDialog.getDatePicker().getMonth();
-        int startDayDay = fromDatePickerDialog.getDatePicker().getDayOfMonth();
-        int startTimeHour = 00;
-        int startTimeMin = 00;
+        startDayYear = fromDatePickerDialog.getDatePicker().getYear();
+        startDayMonth = fromDatePickerDialog.getDatePicker().getMonth();
+        startDayDay = fromDatePickerDialog.getDatePicker().getDayOfMonth();
+        startTimeHour = 0;
+        startTimeMin = 0;
 
         int endDayYear = toDatePickerDialog.getDatePicker().getYear();
         int endDayMonth = toDatePickerDialog.getDatePicker().getMonth();
@@ -176,40 +229,70 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         int endTimeHour = 0;
         int endTimeMin = 0;
 
+        long calID = 3;
+        long startMillis = 0;
+        long endMillis = 0;
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(startDayYear, startDayMonth, startDayDay, startTimeHour, startTimeHour);
+        startMillis = beginTime.getTimeInMillis();
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(endDayYear, endDayMonth, endDayDay, endTimeHour, endTimeMin);
+        endMillis = endTime.getTimeInMillis();
+//Add to calendarView
         ContentValues values = new ContentValues();
         values.put(CalendarProvider.COLOR, Event.COLOR_BLUE);
-        values.put(CalendarProvider.DESCRIPTION, "Some Description");
-        values.put(CalendarProvider.LOCATION, "Madison");
-        values.put(CalendarProvider.EVENT, "Event name");
+        values.put(CalendarProvider.DESCRIPTION, description);
+        values.put(CalendarProvider.LOCATION, location);
+        values.put(CalendarProvider.EVENT, title);
 
         Calendar cal = Calendar.getInstance();
+        TimeZone tz = TimeZone.getDefault();
+        int startDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
 
         cal.set(startDayYear, startDayMonth, startDayDay, startTimeHour, startTimeMin);
         values.put(CalendarProvider.START, cal.getTimeInMillis());
-
-        TimeZone tz = TimeZone.getDefault();
-
-        double julianDay = getJulianDay(startDayYear, startDayMonth, startDayDay);
-        values.put(CalendarProvider.START_DAY, julianDay);
+        values.put(CalendarProvider.START_DAY, startDayJulian);
 
         cal.set(endDayYear, endDayMonth, endDayDay, endTimeHour, endTimeMin);
-        double endDayJulian = getJulianDay(endDayYear, endDayMonth, endDayDay);
 
         values.put(CalendarProvider.END, cal.getTimeInMillis());
         values.put(CalendarProvider.END_DAY, endDayJulian);
 
         Uri uri = getContentResolver().insert(CalendarProvider.CONTENT_URI, values);
 
+// get the event ID that is the last element in the Uri
+        long eventID = Long.parseLong(uri.getLastPathSegment());
+//
+// ... do something with event ID
+//
+//
+
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startMillis)
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endMillis)
+                .putExtra(Events.TITLE, title)
+                .putExtra(Events.DESCRIPTION, description)
+                .putExtra(Events.EVENT_LOCATION, location)
+                .putExtra(Events.AVAILABILITY, Events.AVAILABILITY_BUSY)
+                .putExtra(Intent.EXTRA_EMAIL, email);
+
+        startActivity(intent);
     }
 
     private double getJulianDay(int Y, int M, int D) {
-        double A = Y/100;
-        double B = A/4;
-        double C = 2-A+B;
-        double E = 365.25*(Y+4716);
-        double F = 30.6001*(M+1);
-        double JD= C+D+E+F-1524.5;
+        double A = Y / 100;
+        double B = A / 4;
+        double C = 2 - A + B;
+        double E = 365.25 * (Y + 4716);
+        double F = 30.6001 * (M + 1);
+        double JD = C + D + E + F - 1524.5;
         return JD;
+    }
+
+    public void viewCalendar(View view) {
+
     }
 
 }
