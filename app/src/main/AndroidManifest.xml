@@ -91,7 +91,9 @@
 
         <activity
             android:name=".Preferences"
-            android:label="@string/title_activity_preferences">
+            android:label="@string/title_activity_preferences"
+            android:theme="@android:style/Theme.Holo"
+            android:icon="@drawable/black">
         </activity>
 
         <!-- For Messaging - Chi -->

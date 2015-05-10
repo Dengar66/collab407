@@ -74,7 +74,7 @@
     <string name="pref_email">Email</string>
     <string name="pref_default_email">johnsmith@wisc.edu</string>
     <string name="pref_phonenumber">Phone Number</string>
-    <string name="pref_default_phonenumber">123-456-7890</string>
+    <string name="pref_default_phonenumber"> </string>
 
     <!-- Calendar strings -->
     <string name="sunday">Sun</string>

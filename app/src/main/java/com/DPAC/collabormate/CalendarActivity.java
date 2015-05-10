@@ -61,7 +61,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         setDateTimeField();
 
         ContentValues values = new ContentValues();
-        values.put(CalendarProvider.COLOR, Event.COLOR_YELLOW);
+        values.put(CalendarProvider.COLOR, Event.COLOR_RED);
         values.put(CalendarProvider.DESCRIPTION, "Some Description");
         values.put(CalendarProvider.LOCATION, "Some location");
         values.put(CalendarProvider.EVENT, "Event name");
