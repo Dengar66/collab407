@@ -18,11 +18,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24786c32-a85e-4f4d-8a05-76e3aa4fb9b6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="af2ea317-35c3-4fe7-a66d-f2c1e0b9e970" name="New changelist" comment="" />
@@ -88,7 +83,7 @@
       <file leaf-file-name="CalendarActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8727545">
+            <state vertical-scroll-proportion="0.84615386">
               <caret line="246" column="66" selection-start-line="246" selection-start-column="66" selection-end-line="246" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1647,7 +1642,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431229607208</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Calendar adds events to current day.">
+      <created>1431232724231</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1431232724231</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1664,7 +1665,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287841" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.49786097" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17296678" sideWeight="0.49786097" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15611587" sideWeight="0.5007257" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20967741" sideWeight="0.3717811" order="7" side_tool="true" content_ui="tabs" />
@@ -1675,7 +1676,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10309278" sideWeight="0.49572194" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16609393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994652" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19702177" sideWeight="0.6128342" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19702177" sideWeight="0.6128342" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8831615" sideWeight="0.38716578" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22085561" sideWeight="0.4992743" order="1" side_tool="false" content_ui="combo" />
@@ -1744,7 +1745,8 @@
     </ignored-roots>
     <MESSAGE value="Commit containing code necessary for communication with Parse backend. Paul." />
     <MESSAGE value="Almost working Calendar. Events won't show." />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost working Calendar. Events won't show." />
+    <MESSAGE value="Calendar adds events to current day." />
+    <option name="LAST_COMMIT_MESSAGE" value="Calendar adds events to current day." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2175,7 +2177,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8727545">
+        <state vertical-scroll-proportion="0.84615386">
           <caret line="246" column="66" selection-start-line="246" selection-start-column="66" selection-end-line="246" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
