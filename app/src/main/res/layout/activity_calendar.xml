@@ -93,45 +93,18 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:onClick="addTask"
+        android:text="Add Task" />
 
-        <Button
-            android:id="@+id/addTask"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="addTask"
-            android:text="Add Task" />
+    <com.DPAC.collabormate.ExtendedCalendarView
+        android:id="@+id/calendar"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
 
-        <Button
-            android:id="@+id/deleteTask"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:onClick="deleteTask"
-            android:text="Delete Task" />
-
-        <Button
-            android:id="@+id/viewCal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:onClick="viewCalendar"
-            android:text="View Calendar" />
-    </LinearLayout>
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.DPAC.collabormate.ExtendedCalendarView
-            android:id="@+id/calendar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </RelativeLayout>
 
 </LinearLayout>

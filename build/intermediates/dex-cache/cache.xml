@@ -16,18 +16,18 @@
         <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\quickblox-android-sdk-messages-2.2.2-e08879b80d3bea760e5f40a06f8b05bccc72a043.jar" />
     </item>
     <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-3c1968f117daf4a08afa908202fc10fc56be454a.jar" />
-    </item>
-    <item
         jar="C:\Users\Daniel\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-bc6d48aa256a944dae514efb7620be498f80b8e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-3c1968f117daf4a08afa908202fc10fc56be454a.jar" />
     </item>
     <item
         jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.2.42\classes.jar"

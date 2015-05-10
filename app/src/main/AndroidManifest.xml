@@ -15,6 +15,9 @@
     <!-- Access to  device info-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
     <!--
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
@@ -81,7 +84,9 @@
 
         <activity
             android:name=".CalendarActivity"
-            android:label="@string/title_activity_calendar">
+            android:label="@string/title_activity_calendar"
+            android:theme="@android:style/Theme.Holo"
+            android:icon="@drawable/black">
         </activity>
 
         <activity
