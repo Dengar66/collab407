@@ -13,7 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.DPAC.collabormate.main.Consts;
 import com.DPAC.collabormate.main.helper.PlayServicesHelper;
@@ -37,6 +36,8 @@ public class MessagesActivity extends Activity {
     private EditText messageInEditText;
     private ProgressBar progressBar;
     private Button sendMessageButton;
+
+    public static String savedMessage = "";   // store received messages
 
     private PlayServicesHelper playServicesHelper;
 
@@ -76,12 +77,18 @@ public class MessagesActivity extends Activity {
             public void onClick(View view) {
                 displayMessage();
                 //sendMessageOnClick(view);
+
+                // empty input after displaying message
+                messageOutEditText.setText("");
+                // save sent messages
+                savedMessage = savedMessage + messageInEditText.getText().toString();
             }
         });
     }
 
     private void addMessageToList() {
-        String message = getIntent().getStringExtra(Consts.EXTRA_MESSAGE);
+        //String message = getIntent().getStringExtra(Consts.EXTRA_MESSAGE);
+        String message = savedMessage + messageOutEditText.getText().toString();
         if (message != null) {
             retrieveMessage(message);
         }
@@ -100,10 +107,15 @@ public class MessagesActivity extends Activity {
     }
 
     public void displayMessage() {
+        /*
         // display message
         messageInEditText.setText(messageOutEditText.getText().toString(), TextView.BufferType.EDITABLE);
         // delete input
         messageOutEditText.setText("");
+        */
+        //
+        addMessageToList();
+
         // hide keyboard
         InputMethodManager imm = (InputMethodManager) getSystemService(
                 Context.INPUT_METHOD_SERVICE);
