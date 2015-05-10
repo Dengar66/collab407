@@ -4,7 +4,8 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="19"/>
+        android:targetSdkVersion="19" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -12,7 +13,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <!-- Access to  device info-->
+    <!-- Access to  device info -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!--
@@ -20,95 +21,100 @@
       to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
-        android:protectionLevel="signature"
-        android:name="com.DPAC.collabormate.permission.C2D_MESSAGE" />
+        android:name="com.DPAC.collabormate.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="com.DPAC.collabormate.permission.C2D_MESSAGE" />
 
-    <!-- 4. Declare and use a custom permission so only this application can receive GCM messages.
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <!--
+ 4. Declare and use a custom permission so only this application can receive GCM messages.
       This permission must be called my_app_package.permission.C2D_MESSAGE
       (where my_app_package is the package name of your app as defined by the manifest tag),
-      otherwise it will not work. -->
-    <!-- THIS MAY NEED TO BE DELETED
+      otherwise it will not work.
+    -->
+    <!--
+ THIS MAY NEED TO BE DELETED
     <permission
         android:name="com.quickblox.simplesample.messages.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
     <uses-permission android:name="com.quickblox.simplesample.messages.permission.C2D_MESSAGE" />
     -->
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <provider
-            android:authorities="com.DPAC.collabormate.calendarprovider"
-            android:name="com.DPAC.collabormate.CalendarProvider" />
+            android:name=".CalendarProvider"
+            android:authorities="com.DPAC.collabormate.calendarprovider" />
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignupActivity"
-            android:label="@string/title_activity_signup">
+            android:label="@string/title_activity_signup" >
         </activity>
-
         <activity
             android:name=".ForgetPassActivity"
-            android:label="@string/title_activity_forgot">
+            android:label="@string/title_activity_forgot" >
         </activity>
-
         <activity
             android:name=".ProjectsActivity"
+            android:icon="@drawable/black"
             android:label="@string/title_activity_projects"
-            android:theme="@android:style/Theme.Holo"
-            android:icon="@drawable/black">
+            android:theme="@android:style/Theme.Holo" >
         </activity>
-
         <activity
-            android:name="OverviewActivity"
-            android:label="@string/title_activity_overview">
+            android:name=".OverviewActivity"
+            android:label="@string/title_activity_overview" >
         </activity>
-
         <activity
             android:name=".CalendarActivity"
-            android:label="@string/title_activity_calendar">
+            android:label="@string/title_activity_calendar" >
         </activity>
-
         <activity
             android:name=".Preferences"
-            android:label="@string/title_activity_preferences">
+            android:label="@string/title_activity_preferences" >
         </activity>
 
         <!-- For Messaging - Chi -->
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MessagesActivity"
             android:screenOrientation="portrait" />
 
         <!-- GCM (Push Notifications) setup: http://developer.android.com/google/gcm/gs.html#android-app -->
 
-        <!-- 1. Add the following broadcast receiver.
-        Notice that android:name in the category tag must be replaced by your application's package name -->
+
+        <!--
+        1. Add the following broadcast receiver.
+        Notice that android:name in the category tag must be replaced by your application's package name
+        -->
         <receiver
             android:name=".GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -120,25 +126,27 @@
         <!-- 2. Add the following intent service: -->
         <service android:name=".GCMIntentService" />
 
-
         <!-- For Server Communication - Paul -->
         <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParseBroadcastReceiver">
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
-            android:exported="false">
+        <receiver
+            android:name="com.parse.ParsePushBroadcastReceiver"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -151,12 +159,15 @@
             </intent-filter>
         </receiver>
 
-
         <!-- Google Play Services - Chi -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity
+            android:name=".ProjectViewActivity"
+            android:label="@string/title_activity_project_view" >
+        </activity>
     </application>
 
 </manifest>
