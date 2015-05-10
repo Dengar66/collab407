@@ -1,11 +1,9 @@
 package com.DPAC.collabormate;
 
 import android.app.Application;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 
-import com.quickblox.core.QBSettings;
 import com.DPAC.collabormate.main.Consts;
+import com.quickblox.core.QBSettings;
 
 public class App extends Application {
 
@@ -34,7 +32,7 @@ public class App extends Application {
      * @return Application's version code from the {@code PackageManager}.
      */
 
-
+    /*
     public int getAppVersion() {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -44,6 +42,7 @@ public class App extends Application {
             throw new RuntimeException("Could not get package name: " + e);
         }
     }
+    */
 
 
 }

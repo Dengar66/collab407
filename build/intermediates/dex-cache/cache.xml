@@ -2,67 +2,67 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-e6910e246a3081758b05736cdf60686551c7aafe.jar" />
-    </item>
-    <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\libs\quickblox-android-sdk-messages-2.2.2.jar"
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\libs\quickblox-android-sdk-messages-2.2.2.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="6fa232c02403c8b7a695a4526e183dab713bc444">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\quickblox-android-sdk-messages-2.2.2-e08879b80d3bea760e5f40a06f8b05bccc72a043.jar" />
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\quickblox-android-sdk-messages-2.2.2-1867bfccbcea89775645659c50112560a55cd5d9.jar" />
     </item>
     <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-3c1968f117daf4a08afa908202fc10fc56be454a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Daniel\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="F:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-bc6d48aa256a944dae514efb7620be498f80b8e8.jar" />
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-06ed65caa17c1f5493448b5775d90f01ca509474.jar" />
     </item>
     <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.2.42\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-ac024e5f19b0bcdc6e9b3098f0b1f7b717e8d498.jar" />
-    </item>
-    <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\libs\quickblox-android-sdk-core-2.2.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="50ab24b20316df9aaf9b68fe4f70515670a09620">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\quickblox-android-sdk-core-2.2.2-72f57e47c3f0157282c1e9928b3a03edc3f0f497.jar" />
-    </item>
-    <item
-        jar="C:\Users\Daniel\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jar="C:\Users\Chi Hoang\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-8fec6d767a3e95c12cc321ab6088a13b44c6c731.jar" />
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-e6ddf008359b0a6bc4cd0186537a86a31e554011.jar" />
     </item>
     <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\libs\Parse-1.9.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1b065010f3c9d441ede9078aca8eabcd1c81e647">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\Parse-1.9.1-46b64bce6c62482fdf77009b3f6307fc0bbfa6b7.jar" />
-    </item>
-    <item
-        jar="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\Daniel\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-a8bf68b15e25ffaefd54dab93a362f6f131c20a6.jar" />
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-39bba0007b793e4155588ffca67df9b6185cbab1.jar" />
+    </item>
+    <item
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\libs\Parse-1.9.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1b065010f3c9d441ede9078aca8eabcd1c81e647">
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\Parse-1.9.1-21f447d757fd98688ebc7201057830cb92b4716f.jar" />
+    </item>
+    <item
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.2.42\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a">
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-a39bca28a8d1cf776fc2d45c4a42c62d5d124fcc.jar" />
+    </item>
+    <item
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\libs\quickblox-android-sdk-core-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="50ab24b20316df9aaf9b68fe4f70515670a09620">
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\quickblox-android-sdk-core-2.2.2-54d6b0825c4687e9ae02b24bd01c4a0958d1f510.jar" />
+    </item>
+    <item
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\classes-fd608a5e46663842f08637a0e91c3849280968a6.jar" />
+    </item>
+    <item
+        jar="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="F:\SkyDrive\AndroidStudioProjects\collab407\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-e254a21575c8eb36c9b28bd6f9e9bf361972a7f3.jar" />
     </item>
 
 </items>
