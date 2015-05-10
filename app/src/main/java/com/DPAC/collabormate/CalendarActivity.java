@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
 import android.text.InputType;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 public class CalendarActivity extends Activity implements View.OnClickListener {
     //UI References
@@ -36,6 +38,17 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
     private SimpleDateFormat dateFormatter;
 
+    private int startDayYear = 0;
+    private int startDayMonth = 0;
+    private int startDayDay = 0;
+    private int startTimeHour = 0;
+    private int startTimeMin = 0;
+    private int endDayYear = 0;
+    private int endDayMonth = 0;
+    private int endDayDay = 0;
+    private int endTimeHour = 0;
+    private int endTimeMin = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +58,25 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         findViewsById();
         setDateTimeField();
 
+        ExtendedCalendarView calendar = (ExtendedCalendarView)findViewById(R.id.calendar);
+        ContentValues values = new ContentValues();
+        values.put(CalendarProvider.COLOR, Event.COLOR_BLUE);
+        values.put(CalendarProvider.DESCRIPTION, "Some Description");
+        values.put(CalendarProvider.LOCATION, "Some location");
+        values.put(CalendarProvider.EVENT, "Event name");
 
+        Calendar cal = Calendar.getInstance();
+        TimeZone tz = TimeZone.getDefault();
+        cal.set(startDayYear, startDayMonth, startDayDay, startTimeHour, startTimeMin);
+        int StartDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        values.put(CalendarProvider.START, cal.getTimeInMillis());
+        values.put(CalendarProvider.START_DAY, StartDayJulian);
+
+        cal.set(endDayYear, endDayMonth, endDayDay, endTimeHour, endTimeMin);
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+
+        values.put(CalendarProvider.END, cal.getTimeInMillis());
+        values.put(CalendarProvider.END_DAY, endDayJulian);
     }
 
     private void findViewsById() {
@@ -179,11 +210,11 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         String location = loc.getText().toString();
         String email = person.getText().toString();
 
-        int startDayYear = fromDatePickerDialog.getDatePicker().getYear();
-        int startDayMonth = fromDatePickerDialog.getDatePicker().getMonth();
-        int startDayDay = fromDatePickerDialog.getDatePicker().getDayOfMonth();
-        int startTimeHour = 0;
-        int startTimeMin = 0;
+        startDayYear = fromDatePickerDialog.getDatePicker().getYear();
+        startDayMonth = fromDatePickerDialog.getDatePicker().getMonth();
+        startDayDay = fromDatePickerDialog.getDatePicker().getDayOfMonth();
+        startTimeHour = 0;
+        startTimeMin = 0;
 
         int endDayYear = toDatePickerDialog.getDatePicker().getYear();
         int endDayMonth = toDatePickerDialog.getDatePicker().getMonth();
@@ -208,13 +239,13 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         values.put(CalendarProvider.EVENT, title);
 
         Calendar cal = Calendar.getInstance();
-        double julianDay = getJulianDay(startDayYear, startDayMonth, startDayDay);
-        double endDayJulian = getJulianDay(endDayYear, endDayMonth, endDayDay);
+        TimeZone tz = TimeZone.getDefault();
+        int startDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
+        int endDayJulian = Time.getJulianDay(cal.getTimeInMillis(), TimeUnit.MILLISECONDS.toSeconds(tz.getOffset(cal.getTimeInMillis())));
 
         cal.set(startDayYear, startDayMonth, startDayDay, startTimeHour, startTimeMin);
         values.put(CalendarProvider.START, cal.getTimeInMillis());
-        values.put(CalendarProvider.START_DAY, julianDay);
-        TimeZone tz = TimeZone.getDefault();
+        values.put(CalendarProvider.START_DAY, startDayJulian);
 
         cal.set(endDayYear, endDayMonth, endDayDay, endTimeHour, endTimeMin);
 
