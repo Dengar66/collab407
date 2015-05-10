@@ -96,7 +96,7 @@ public class CalendarProvider extends ContentProvider {
 
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
-		long rowID = db.insert(EVENTS_TABLE,null, values);
+		long rowID = db.insert(EVENTS_TABLE, null, values);
 		Uri _uri = null;
 		if(rowID > 0){
 			_uri = ContentUris.withAppendedId(CONTENT_ID_URI_BASE,rowID);
@@ -114,6 +114,12 @@ public class CalendarProvider extends ContentProvider {
 		DBHelper = new DatabaseHelper(context);
 		db = DBHelper.getWritableDatabase();
 		return (db == null)? false:true;
+	}
+
+	public void resetDatabase() {
+		Context context = getContext();
+		DBHelper.close();
+		DBHelper = new DatabaseHelper(context);
 	}
 
 	@Override
