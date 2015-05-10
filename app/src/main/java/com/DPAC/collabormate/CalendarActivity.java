@@ -155,6 +155,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
             case R.id.logout:
                 ParseUser.logOut();
+                startActivity(new Intent(CalendarActivity.this, MainActivity.class));
                 return(true);
         }
 

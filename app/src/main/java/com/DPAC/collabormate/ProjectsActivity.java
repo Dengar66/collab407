@@ -131,6 +131,7 @@ public class ProjectsActivity extends ListActivity {
 
         if (id == R.id.logout)   {
             ParseUser.logOut();
+            startActivity(new Intent(ProjectsActivity.this, MainActivity.class));
             return(true);
         }
 

@@ -123,6 +123,7 @@ public class OverviewActivity extends ActionBarActivity  {
 
         if (id == R.id.logout)   {
             ParseUser.logOut();
+            startActivity(new Intent(OverviewActivity.this, MainActivity.class));
             return(true);
         }
 
