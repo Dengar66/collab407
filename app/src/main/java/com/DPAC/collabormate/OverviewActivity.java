@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -102,7 +102,7 @@ public class OverviewActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         Button cal_button = (Button) findViewById(R.id.calendar_button);
-        cal_button.setOnClickListener(new View.OnClickListener(){
+        cal_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(OverviewActivity.this, CalendarActivity.class));
@@ -110,7 +110,7 @@ public class OverviewActivity extends Activity {
         });
 
         Button mes_button = (Button) findViewById(R.id.message_button);
-        mes_button.setOnClickListener(new View.OnClickListener(){
+        mes_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(OverviewActivity.this, MessagesActivity.class));
@@ -187,27 +187,10 @@ public class OverviewActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    /*
-
-    // Will be called via the onClick attribute
-    // of the buttons in projects.xml
-    public void deleteProject(View view) {
-        @SuppressWarnings("unchecked")
-        ArrayAdapter<Project> adapter = (ArrayAdapter<Project>) getListAdapter();
-        Project project = null;
-        if (getListAdapter().getCount() > 0) {
-            project = (Project) getListAdapter().getItem(0);
-            datasource.deleteProject(project);
-            adapter.remove(project);
-        }
-        adapter.notifyDataSetChanged();
-    }
-
-    public void newProject(View view){
+    public void addPartner(View view) {
         @SuppressWarnings("unchecked")
         final AlertDialog.Builder[] builder = {new AlertDialog.Builder(this)};
-        builder[0].setTitle("New Project Name:");
+        builder[0].setTitle("Partner Username:");
 
         // Set up the input
         final EditText input = new EditText(this);
@@ -219,12 +202,7 @@ public class OverviewActivity extends Activity {
         builder[0].setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                projectName = input.getText().toString();
-                ArrayAdapter<Project> adapter = (ArrayAdapter<Project>) getListAdapter();
-                Project project = null;
-                project = datasource.createProject(projectName);
-                adapter.add(project);
-                adapter.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(), "Partner Added.", Toast.LENGTH_SHORT).show();
             }
         });
         //Cancel
@@ -237,8 +215,6 @@ public class OverviewActivity extends Activity {
 
         builder[0].show();
     }
-    */
-
 
     @Override
     protected void onResume() {
