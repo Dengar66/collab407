@@ -10,9 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -48,7 +50,7 @@ public class OverviewActivity extends Activity {
         final ParseQuery query = ParseUser.getQuery();
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
-            public void done(List<ParseObject> objects, ParseException e){
+            public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
                     Toast.makeText(getApplicationContext(), objects.toString(), Toast.LENGTH_SHORT)
                             .show();
@@ -64,6 +66,24 @@ public class OverviewActivity extends Activity {
                 }
             }
         });
+
+        userlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> paren, View v, int pos, long id) {
+                String str = ((TextView)v).getText().toString();
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{str});
+                i.putExtra(Intent.EXTRA_SUBJECT, "Collabormate Project");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(OverviewActivity.this, "There are no email clients installed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
 
     }
