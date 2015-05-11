@@ -92,7 +92,7 @@
     <string name="qb_slogan">YOUR COMMUNICATION \nBACKEND</string>
     <string name="hint_enter_your_message">Enter Your message here</string>
     <string name="send">Send message</string>
-    <string name="received_messages">Received messages</string>
+    <string name="message_board">Message board</string>
     <string name="no_messages">No messages</string>
     <string name="title_activity_project_view">ProjectViewActivity</string>
 

@@ -5,7 +5,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
@@ -36,8 +38,12 @@ public class MessagesActivity extends Activity {
     private EditText messageInEditText;
     private ProgressBar progressBar;
     private Button sendMessageButton;
+    private Button deleteMessageButton;
 
-    public static String savedMessage = "";   // store received messages
+    private SharedPreferences prefs
+                            = PreferenceManager.getDefaultSharedPreferences(this);;
+
+    public static String savedMessage = "";   // store sent messages
 
     private PlayServicesHelper playServicesHelper;
 
@@ -49,10 +55,10 @@ public class MessagesActivity extends Activity {
         playServicesHelper = new PlayServicesHelper(this);
 
         initUI();
-        addMessageToList();
+
+        messageInEditText.setText(savedMessage);
 
         // Register to receive push notifications events
-        //
         LocalBroadcastManager.getInstance(this).registerReceiver(mPushReceiver,
                 new IntentFilter(Consts.NEW_PUSH_EVENT));
     }
@@ -63,6 +69,9 @@ public class MessagesActivity extends Activity {
         // Unregister since the activity is about to be closed.
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mPushReceiver);
 
+        // save sent messages
+        // savedMessage = savedMessage + messageInEditText.getText().toString();
+
         super.onDestroy();
     }
 
@@ -71,6 +80,7 @@ public class MessagesActivity extends Activity {
         messageOutEditText = (EditText) findViewById(R.id.message_out_edittext);
         messageInEditText = (EditText) findViewById(R.id.messages_in_edittext);
         sendMessageButton = (Button) findViewById(R.id.send_message_button);
+        deleteMessageButton = (Button) findViewById(R.id.delete_message_button);
 
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,25 +89,51 @@ public class MessagesActivity extends Activity {
                 //sendMessageOnClick(view);
 
                 // empty input after displaying message
-                messageOutEditText.setText("");
-                // save sent messages
-                savedMessage = savedMessage + messageInEditText.getText().toString();
+                messageOutEditText.getText().clear();
+                savedMessage = messageInEditText.getText().toString();
+            }
+        });
+
+        deleteMessageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Delete saved messages
+                savedMessage = "";
+                // Clear board
+                messageInEditText.getText().clear();
+
             }
         });
     }
 
     private void addMessageToList() {
         //String message = getIntent().getStringExtra(Consts.EXTRA_MESSAGE);
-        String message = savedMessage + messageOutEditText.getText().toString();
+        String message = messageOutEditText.getText().toString();
+        //savedMessage +
         if (message != null) {
             retrieveMessage(message);
         }
     }
 
     public void retrieveMessage(final String message) {
-        String text = message + "\n\n" + messageInEditText.getText().toString();
+        String text = savedMessage + message + "\n\n";
+                //+ messageInEditText.getText().toString();
         messageInEditText.setText(text);
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    // adding new method to display messages
+    public void displayMessage() {
+        // addMessageToList();
+        String message = savedMessage + messageOutEditText.getText().toString()
+                + "\n\n";
+        messageInEditText.setText(message);
+        progressBar.setVisibility(View.INVISIBLE);
+
+        // hide keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(messageOutEditText.getWindowToken(), 0);
     }
 
     @Override
@@ -106,21 +142,6 @@ public class MessagesActivity extends Activity {
         playServicesHelper.checkPlayServices();
     }
 
-    public void displayMessage() {
-        /*
-        // display message
-        messageInEditText.setText(messageOutEditText.getText().toString(), TextView.BufferType.EDITABLE);
-        // delete input
-        messageOutEditText.setText("");
-        */
-        //
-        addMessageToList();
-
-        // hide keyboard
-        InputMethodManager imm = (InputMethodManager) getSystemService(
-                Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(messageOutEditText.getWindowToken(), 0);
-    }
 
     public void sendMessageOnClick(View view) {
         // Send Push: create QuickBlox Push Notification Event
