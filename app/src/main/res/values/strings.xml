@@ -23,6 +23,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_signup">Sign Up</string>
     <string name="btn_forget">Forget Password</string>
+    <string name="btn_add">Add Partner</string>
     <string name="error_field_required">Field is required for login.</string>
     <string name="error_invalid_email">Email address is invalid.</string>
     <string name="error_invalid_password">Password is invalid.</string>

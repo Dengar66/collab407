@@ -66,7 +66,7 @@ public class OverviewActivity extends Activity {
                         listAdapter.add(email);
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG);
+                    //Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG);
                 }
             }
         });
