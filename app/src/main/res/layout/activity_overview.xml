@@ -3,7 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@android:style/Theme.Holo">
+    android:theme="@android:style/Theme.Holo"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView4" />
 
     <TextView
         android:layout_width="match_parent"
@@ -22,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Send Messages to Parteners:"
+        android:text="Send Messages to Partners:"
         android:id="@+id/mesgTextView" />
 
     <Button
@@ -31,9 +39,22 @@
         android:text="Message"
         android:id="@+id/message_button" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/users"
+        android:id="@+id/textView3" />
+
     <ListView
         android:layout_width="match_parent"
+        android:layout_height="236dp"
+        android:id="@+id/list2" />
+
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/list2"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/btn_add"
+        android:id="@+id/button"
+        android:layout_gravity="right" />
 </LinearLayout>

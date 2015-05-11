@@ -10,6 +10,7 @@
     <string name="password">Password:</string>
     <string name="about">About</string>
     <string name="help">Help</string>
+    <string name="users">Project Users:</string>
 
     <string name="title_activity_projects">Projects</string>
     <string name="title_activity_calendar">Calendar</string>
@@ -22,6 +23,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_signup">Sign Up</string>
     <string name="btn_forget">Forget Password</string>
+    <string name="btn_add">Add Partner</string>
     <string name="error_field_required">Field is required for login.</string>
     <string name="error_invalid_email">Email address is invalid.</string>
     <string name="error_invalid_password">Password is invalid.</string>
@@ -74,7 +76,7 @@
     <string name="pref_email">Email</string>
     <string name="pref_default_email">johnsmith@wisc.edu</string>
     <string name="pref_phonenumber">Phone Number</string>
-    <string name="pref_default_phonenumber">123-456-7890</string>
+    <string name="pref_default_phonenumber"> </string>
 
     <!-- Calendar strings -->
     <string name="sunday">Sun</string>
