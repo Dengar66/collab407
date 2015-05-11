@@ -13,12 +13,14 @@
             android:title="@string/notif_title"/>
         <!-- Message -->
         <SwitchPreference
+            android:dependency="notif"
             android:defaultValue="false"
             android:key="notif"
             android:summary="@string/message_summary"
             android:title="@string/message_title"/>
         <!-- Tasks due -->
         <SwitchPreference
+            android:dependency="notif"
             android:defaultValue="false"
             android:key="notif"
             android:summary="@string/task_summary"

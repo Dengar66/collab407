@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.DPAC.collabormate.main.Consts;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -17,8 +18,6 @@ import com.quickblox.core.QBEntityCallbackImpl;
 import com.quickblox.messages.QBMessages;
 import com.quickblox.messages.model.QBEnvironment;
 import com.quickblox.messages.model.QBSubscription;
-import com.DPAC.collabormate.App;
-import com.DPAC.collabormate.main.Consts;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -94,11 +93,13 @@ public class PlayServicesHelper {
         // since the existing regID is not guaranteed to work with the new
         // app version.
         int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
+        /*
         int currentVersion = App.getInstance().getAppVersion();
         if (registeredVersion != currentVersion) {
             Log.i(TAG, "App version changed.");
             return "";
         }
+        */
         return registrationId;
     }
 
@@ -203,11 +204,13 @@ public class PlayServicesHelper {
      */
     private void storeRegistrationId(String regId) {
         final SharedPreferences prefs = getGCMPreferences();
+        /*
         int appVersion = App.getInstance().getAppVersion();
         Log.i(TAG, "Saving regId on app version " + appVersion);
+        */
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PROPERTY_REG_ID, regId);
-        editor.putInt(PROPERTY_APP_VERSION, appVersion);
+        //editor.putInt(PROPERTY_APP_VERSION, appVersion);
         editor.commit();
     }
 }
