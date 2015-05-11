@@ -18,8 +18,8 @@
 
     <ImageView android:src="@drawable/icon"
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@android:dimen/thumbnail_width"
+        android:layout_height="@android:dimen/thumbnail_height"
         android:layout_below="@id/app_name"
         android:layout_centerHorizontal="true"
         android:padding="25dp"/>

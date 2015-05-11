@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@android:style/Theme.Holo">
+    android:theme="@android:style/Theme.Holo"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="match_parent"
@@ -30,9 +31,15 @@
         android:text="Message"
         android:id="@+id/message_button" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/users"
+        android:id="@+id/textView3" />
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/list2"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="236dp"
+        android:id="@+id/list2" />
 </LinearLayout>

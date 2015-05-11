@@ -5,11 +5,25 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by Chi Hoang on 5/6/2015.
@@ -23,6 +37,35 @@ public class OverviewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
+
+        // Set up the listview
+        ArrayList<String> userList = new ArrayList<String>();
+        // Create and populate an ArrayList of objects from parse
+        final ArrayAdapter<String> listAdapter = new ArrayAdapter<>(OverviewActivity.this,
+                android.R.layout.simple_list_item_1);
+        final ListView userlv = (ListView)findViewById(R.id.list2);
+        userlv.setAdapter(listAdapter);
+        final ParseQuery query = ParseUser.getQuery();
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e){
+                if (e == null) {
+                    Toast.makeText(getApplicationContext(), objects.toString(), Toast.LENGTH_SHORT)
+                            .show();
+                    for (int i = 0; i < objects.size(); i++) {
+                        ParseUser u = (ParseUser) objects.get(i);
+
+                        String email = u.getString("email").toString();
+
+                        listAdapter.add(email);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
     }
 
 
