@@ -22,18 +22,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_4_2_42.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_4_2_42.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="af2ea317-35c3-4fe7-a66d-f2c1e0b9e970" name="New changelist" comment="" />
@@ -100,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+              <caret line="301" column="5" selection-start-line="273" selection-start-column="4" selection-end-line="301" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4072#4434#0" expanded="true" />
@@ -133,12 +122,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OverviewActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OverviewActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/OverviewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="1.40625">
               <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#1327#1335#0" expanded="true" />
+                <element signature="e#1744#2476#0" expanded="true" />
+                <element signature="e#2475#2476#0" expanded="true" />
+                <element signature="e#2518#3343#0" expanded="true" />
+                <element signature="e#3342#3343#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,13 +148,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_calendar.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_calendar.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76666665">
+            <state vertical-scroll-proportion="-61.5">
               <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding>
                 <element signature="e#696#729#0" expanded="true" />
@@ -1741,7 +1736,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431301751821</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="All good.">
+      <created>1431308855620</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1431308855620</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1769,7 +1770,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10206422" sideWeight="0.49572194" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16609393" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994652" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33906072" sideWeight="0.6128342" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33906072" sideWeight="0.6128342" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8831615" sideWeight="0.38716578" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22085561" sideWeight="0.4992743" order="1" side_tool="false" content_ui="combo" />
@@ -1837,7 +1838,8 @@
       <path value="$PROJECT_DIR$/collabormate" />
     </ignored-roots>
     <MESSAGE value="Commit containing code necessary for communication with Parse backend. Paul." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit containing code necessary for communication with Parse backend. Paul." />
+    <MESSAGE value="All good." />
+    <option name="LAST_COMMIT_MESSAGE" value="All good." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2182,14 +2184,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/OverviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_overview.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2247,10 +2241,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-61.5">
+          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding>
+            <element signature="e#696#729#0" expanded="true" />
+            <element signature="e#758#793#0" expanded="true" />
+            <element signature="e#823#858#0" expanded="true" />
+            <element signature="e#886#919#0" expanded="true" />
+            <element signature="e#1208#1227#0" expanded="true" />
+            <element signature="e#1444#1461#0" expanded="true" />
+            <element signature="e#1738#1771#0" expanded="true" />
+            <element signature="e#1800#1835#0" expanded="true" />
+            <element signature="e#1865#1900#0" expanded="true" />
+            <element signature="e#1928#1961#0" expanded="true" />
+            <element signature="e#2755#2788#0" expanded="true" />
+            <element signature="e#2817#2852#0" expanded="true" />
+            <element signature="e#2882#2917#0" expanded="true" />
+            <element signature="e#2945#2978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/CalendarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+          <caret line="301" column="5" selection-start-line="273" selection-start-column="4" selection-end-line="301" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4072#4434#0" expanded="true" />
@@ -2282,28 +2302,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/DPAC/collabormate/OverviewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76666665">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.40625">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="e#696#729#0" expanded="true" />
-            <element signature="e#758#793#0" expanded="true" />
-            <element signature="e#823#858#0" expanded="true" />
-            <element signature="e#886#919#0" expanded="true" />
-            <element signature="e#1208#1227#0" expanded="true" />
-            <element signature="e#1444#1461#0" expanded="true" />
-            <element signature="e#1738#1771#0" expanded="true" />
-            <element signature="e#1800#1835#0" expanded="true" />
-            <element signature="e#1865#1900#0" expanded="true" />
-            <element signature="e#1928#1961#0" expanded="true" />
-            <element signature="e#2755#2788#0" expanded="true" />
-            <element signature="e#2817#2852#0" expanded="true" />
-            <element signature="e#2882#2917#0" expanded="true" />
-            <element signature="e#2945#2978#0" expanded="true" />
+            <element signature="e#1327#1335#0" expanded="true" />
+            <element signature="e#1744#2476#0" expanded="true" />
+            <element signature="e#2475#2476#0" expanded="true" />
+            <element signature="e#2518#3343#0" expanded="true" />
+            <element signature="e#3342#3343#0" expanded="true" />
           </folding>
         </state>
       </provider>
