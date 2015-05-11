@@ -13,7 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.DPAC.collabormate.main.Consts;
 import com.DPAC.collabormate.main.SharedPreference;
@@ -76,9 +75,6 @@ public class MessagesActivity extends Activity {
 
         // Save the text in SharedPreference
         sharedPreference.save(context, savedMessage);
-        Toast.makeText(context,
-                getResources().getString(R.string.saved),
-                Toast.LENGTH_LONG).show();
 
         super.onDestroy();
     }
