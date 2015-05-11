@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingBottom="10dp"
         android:text="Large Text"
         android:id="@+id/textView4" />
 
@@ -55,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_add"
+        android:onClick="addPartner"
         android:id="@+id/button"
         android:layout_gravity="right" />
 </LinearLayout>
