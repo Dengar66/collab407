@@ -34,11 +34,15 @@ import java.util.List;
 public class OverviewActivity extends Activity {
 
     private ProjectsDataSource datasource;
-    private String projectName = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent last = getIntent();
+        String project = last.getStringExtra("project");
         setContentView(R.layout.activity_overview);
+        TextView tv = (TextView)findViewById(R.id.textView4);
+        tv.setText(project);
 
         // Set up the listview
         ArrayList<String> userList = new ArrayList<String>();
@@ -62,7 +66,7 @@ public class OverviewActivity extends Activity {
                         listAdapter.add(email);
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG);
                 }
             }
         });

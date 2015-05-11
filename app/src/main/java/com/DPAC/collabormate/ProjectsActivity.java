@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.ParseUser;
 
@@ -45,7 +46,9 @@ public class ProjectsActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                String str = ((TextView)view).getText().toString();
                 Intent intent = new Intent(ProjectsActivity.this, OverviewActivity.class);
+                intent.putExtra("project", str);
                 startActivity(intent);
             }
         });
