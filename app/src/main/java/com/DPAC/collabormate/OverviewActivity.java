@@ -89,8 +89,6 @@ public class OverviewActivity extends Activity {
             }
         });
 
-
-
     }
 
 

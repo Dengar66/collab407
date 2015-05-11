@@ -5,9 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
@@ -15,8 +13,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.DPAC.collabormate.main.Consts;
+import com.DPAC.collabormate.main.SharedPreference;
 import com.DPAC.collabormate.main.helper.PlayServicesHelper;
 import com.DPAC.collabormate.main.utils.DialogUtils;
 import com.quickblox.core.QBEntityCallbackImpl;
@@ -40,8 +40,8 @@ public class MessagesActivity extends Activity {
     private Button sendMessageButton;
     private Button deleteMessageButton;
 
-    private SharedPreferences prefs
-                            = PreferenceManager.getDefaultSharedPreferences(this);;
+    private SharedPreference sharedPreference;
+    Activity context = this;
 
     public static String savedMessage = "";   // store sent messages
 
@@ -51,6 +51,11 @@ public class MessagesActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messages_layout);
+
+        // create sharedPreference
+        sharedPreference = new SharedPreference();
+        // Retrieve a value from SharedPreference
+        savedMessage = sharedPreference.getValue(context);
 
         playServicesHelper = new PlayServicesHelper(this);
 
@@ -69,8 +74,11 @@ public class MessagesActivity extends Activity {
         // Unregister since the activity is about to be closed.
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mPushReceiver);
 
-        // save sent messages
-        // savedMessage = savedMessage + messageInEditText.getText().toString();
+        // Save the text in SharedPreference
+        sharedPreference.save(context, savedMessage);
+        Toast.makeText(context,
+                getResources().getString(R.string.saved),
+                Toast.LENGTH_LONG).show();
 
         super.onDestroy();
     }

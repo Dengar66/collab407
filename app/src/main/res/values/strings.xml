@@ -97,5 +97,6 @@
     <string name="message_board">Message board</string>
     <string name="no_messages">No messages</string>
     <string name="title_activity_project_view">ProjectViewActivity</string>
+    <string name="saved">Saved in SharedPreferences. Go to second activity.</string>
 
 </resources>
